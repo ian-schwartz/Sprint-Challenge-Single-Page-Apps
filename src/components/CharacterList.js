@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CharacterCard from "./CharacterCard";
 import { statement } from "@babel/template";
 import jssPluginPropsSort from "jss-plugin-props-sort";
 import SearchForm from "./SearchForm";
@@ -27,14 +28,11 @@ export default function CharacterList(props) {
 
 
   return (
-  
-    // <SearchForm characters={characters} />
     <section className="character-list">
-    {character.map(item => (
-        <h2>
-        {item.name}
-        </h2>
-      ))}
+      {/* <SearchForm /> */}
+       {character.map(char => {
+        return <CharacterCard key={char.name} char={char} />;
+      })} 
     </section>
   );
 }
